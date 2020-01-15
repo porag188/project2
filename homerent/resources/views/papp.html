@@ -1,0 +1,158 @@
+
+
+		<div class="container">
+			<div class="row">
+				<div class="col-8">
+					<div class="card-header bg-danger">
+						<center><h2>Show all add...</h2></center>
+						
+					</div>
+					<div class="card-body">
+						<div class="alert alert-success">
+
+								<table class="table table-bordered">
+									 <thead>
+											<tr>
+											      <th>Add_title</th>
+											      <th>Address</th>
+											      <th>Road</th>
+											      <th>Thana/P.S</th>
+											      <th>Type</th>
+											      <th>Cost</th>
+											      <th>Contact</th>
+											      
+											</tr>
+									</thead>
+									 <tbody>
+									 	@foreach ($addposts as $addpost)
+									 	
+											<tr>
+												
+											      
+												      <td>{{$addpost->add_title}}</td>
+												      <td>{{$addpost->address}}</td>
+												      <td>{{$addpost->road}}</td>
+												      <td>{{$addpost->thana}}</td>
+												      <td>{{$addpost->type}}</td>
+												      <td>{{$addpost->cost}}</td>
+												      <td>{{$addpost->contact}}</td>
+
+												      
+											    
+											      
+											      
+											</tr>
+										@endforeach
+
+
+										
+									 </tbody>
+								</table>
+									{{ $addposts->links() }}
+							
+							
+						</div>
+						
+					</div>
+					
+				</div>
+
+
+
+
+				<div class="col-4">
+							<div class="card-header bg-danger">
+									<center><h2><b>Add Post Form</b></h2></center>
+						
+							</div>
+							<div class="card-body">
+
+								@if(session('status'))
+									<div class="alert alert-success">
+										{{session('status')}}
+										
+									</div>
+										
+
+								@endif
+								
+								
+									<form action="{{url('add/post/insert')}}" method="post">
+										@csrf
+											<div class="form-group">
+													<label>Add Title</label>
+													<input type="text" name="add_title" class="form-control" placeholder="Enter your Add Title">
+											</div>
+
+											<div class="form-group">
+														<header><h3><b><center>Address Section</center></b></h3></header>
+
+														<div class="form-group">
+																<label>Address</label>
+																<textarea type="text" name="address" class="form-control" rows="6">
+																</textarea> 
+															
+														</div>
+
+														<div class="form-group">
+																<label>Road</label>
+																<input type="text" name="road" class="form-control" placeholder="Enter Road">
+														</div>
+														<div class="form-group">
+																<label>Thana/Police Station</label>
+																<input type="text" name="thana" class="form-control" placeholder="Enter your Police Station/Thana">
+														</div>
+												
+											</div>
+											<div class="form-group">
+														<header><h3><b><center>Details Section</center></b></h3></header>
+
+														<div class="form-group">
+																<label>House Type</label>
+																<input type="text" name="type" class="form-control" placeholder="Enter your type">
+														</div>
+														<div class="form-group">
+																<label>Seat/House Rent Cost</label>
+																<input type="text" name="cost" class="form-control" placeholder="Enter your total cost">
+														</div>
+
+														<div class="form-group">
+																<label>Contact Number</label>
+																<input type="text" name="contact" class="form-control" placeholder="Enter your Contact Number">
+														</div>
+													<!-- Image upload section
+
+														<div class="form-group">
+																<label>Image</label>
+																<input type="file" name="image" class="form-control" placeholder="Enter your Image">
+														</div>
+													-->
+
+
+												
+											</div>
+											<center>
+												<button type="submit" class="btn btn-info" style="float: left">Add Post
+												</button>
+
+												<button type="submit" class="btn btn-success" style="float: right; color: white; font-weight: bold"><a href="{{url('/home')}}" style="color: white; font-weight: bold">Back to your page/dashboard?</a>
+												</button>
+
+												
+											</center>
+
+											
+											
+											
+											
+											
+
+
+
+										
+									</form>
+							</div>
+				</div>
+			
+			</div>
+		</div>
